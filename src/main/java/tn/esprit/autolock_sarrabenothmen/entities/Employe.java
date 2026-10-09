@@ -1,6 +1,6 @@
 package tn.esprit.autolock_sarrabenothmen.entities;
 
-import tn.esprit.autolock_sarrabenothmen.enums.RoleEmploye;
+import tn.esprit.autolock_sarrabenothmen.entities.enums.RoleEmploye;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,4 +25,10 @@ public class Employe {
 
     @Enumerated(EnumType.STRING)
     private RoleEmploye role;
+
+    // Employe * ---- 1 Agence
+    @ManyToOne
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Agence agence;
 }

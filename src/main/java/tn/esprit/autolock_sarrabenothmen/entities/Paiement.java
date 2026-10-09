@@ -1,6 +1,6 @@
 package tn.esprit.autolock_sarrabenothmen.entities;
 
-import tn.esprit.autolock_sarrabenothmen.enums.ModePaiement;
+import tn.esprit.autolock_sarrabenothmen.entities.enums.ModePaiement;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,4 +28,10 @@ public class Paiement {
 
     @Enumerated(EnumType.STRING)
     private ModePaiement modePaiement;
+
+    // Paiement * ---- 1 Contrat
+    @ManyToOne
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Contrat contrat;
 }

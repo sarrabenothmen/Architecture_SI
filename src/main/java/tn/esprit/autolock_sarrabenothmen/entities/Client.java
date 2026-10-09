@@ -1,9 +1,11 @@
 package tn.esprit.autolock_sarrabenothmen.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "client")
@@ -31,4 +33,11 @@ public class Client {
     private String numPermis;
 
     private LocalDate dateInscription;
+
+    // Client 1 ---- * Reservation
+    @OneToMany(mappedBy = "client")
+    @JsonIgnore
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<Reservation> reservations;
 }

@@ -1,4 +1,4 @@
-package tn.esprit.autolock_sarrabenothmen.enums;
+package tn.esprit.autolock_sarrabenothmen.entities.enums;
 
 public enum ModePaiement {
 

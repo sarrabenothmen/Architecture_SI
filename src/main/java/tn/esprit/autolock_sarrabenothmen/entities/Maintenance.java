@@ -1,13 +1,12 @@
 package tn.esprit.autolock_sarrabenothmen.entities;
 
-import tn.esprit.autolock_sarrabenothmen.enums.StatutReservation;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "reservation")
+@Table(name = "maintenance")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,16 +14,21 @@ import java.time.LocalDate;
 @Builder
 @ToString
 @EqualsAndHashCode
-public class Reservation {
+public class Maintenance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idReservation;
+    private Long idMaintenance;
 
     private LocalDate dateDebut;
 
     private LocalDate dateFin;
 
-    @Enumerated(EnumType.STRING)
-    private StatutReservation statut;
+    private String description;
+
+    // Maintenance * ---- 1 Vehicule
+    @ManyToOne
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Vehicule vehicule;
 }
